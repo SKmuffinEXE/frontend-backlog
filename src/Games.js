@@ -1,13 +1,13 @@
 import React from 'react'
+import GameCard from './GameCard'
 
 export default function Games({gamelist}) {
 
-    
+    const GameList = gamelist.map((game) => <GameCard game = {game} />)
 
     return (
         <div>
-            <h1>Test</h1>
-            
+            {GameList}
         </div>
     )
 }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { Switch, Route  } from "react-router-dom";
 import './App.css';
 import Header from './Header';
@@ -15,14 +14,15 @@ import {useState, useEffect } from 'react'
 function App() {
 
   const [games, setGames] = useState([])
+  // const [user, setUser] = useState()
 
   useEffect(() => {
-    fetch("http://localhost:3069/games")
+    fetch("http://localhost:9292/games")
     .then(res => res.json())
     .then((gameObj) => setGames(gameObj))
   },[])
 
-  const gamelist = games.map(gameobj => <Games name={gameobj.name} genre={gameobj.genre} releasedate={gameobj.release_date} key={gameobj.id}/> )
+  // const gamelist = games.map(gameobj => <Games name={gameobj.name} genre={gameobj.genre} releasedate={gameobj.release_date} key={gameobj.id}/> )
 
 
   return (
@@ -39,7 +39,7 @@ function App() {
           </Route>
           
            <Route path="/">
-            <Games gamelist={gamelist} />
+            <Games gamelist={games} />
           </Route>
           <Route path="*">
             <h1>404 not found</h1>
