@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function Games() {
+export default function Games({gamelist}) {
+
+    
+
     return (
         <div>
-            <h1>Games home</h1>
+            <h1>Test</h1>
+            
         </div>
     )
 }
