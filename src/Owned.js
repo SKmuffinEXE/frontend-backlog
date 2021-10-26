@@ -17,13 +17,13 @@ export default function Gamesowned() {
 
       function handleClick(){
         console.log(user)
-        async() => {
+        setTimeout('', 7000);
         fetch(`http://localhost:9292/user/${user}`)
         .then(res => res.json())
         .then((gameObj) => {
             
             setGameList(gameObj.ownedgames)
-        }) }
+        }) 
     }
 
     return (
