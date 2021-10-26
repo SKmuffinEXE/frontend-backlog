@@ -1,23 +1,27 @@
 import logo from './logo.svg';
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom";
 import './App.css';
 import Header from './Header';
 import NavBar from './NavBar';
+import Games from './Games';
+import Owned from './Owned'
+import Addgame from './Addgame'
+
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      {/* <NavBar/> */}
+      <NavBar />
       <Switch>
-          <Route path="/write">
-            <Form addReview={addReview} />
+          <Route path="/Games">
+            <Games />
           </Route>
-          <Route path="/reviews">
-            <Gallery movies={movies} deleteItem={deleteItem}  />
+          <Route path="/Owned">
+            <Owned />
           </Route>
-          <Route exact path="/">
-            <Home />
+          <Route exact path="/Addgame">
+            <Addgame />
           </Route>
           <Route path="*">
             <h1>404 not found</h1>
