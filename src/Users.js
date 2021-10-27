@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useEffect } from 'react'
 
-export default function Users({setUser, getGameList}) {
+export default function Users({setUser}) {
 
     const [userList, setUserList] = useState([])
     // const [user, setUser] = useState()
@@ -15,11 +15,6 @@ export default function Users({setUser, getGameList}) {
         })
       },[])
 
-      function handleClick(){
-            // console.log(user)
-            // getGameList()
-
-        }
     
 
     return (
@@ -30,7 +25,7 @@ export default function Users({setUser, getGameList}) {
             {userList.map(userObj => 
                 <div>
                     <span>{userObj.user} &nbsp;</span> 
-                    <button onClick = {() => {setUser(prev => userObj.id); handleClick()}}> Login</button>
+                    <button onClick = {() => {setUser(prev => userObj.id);}}> Login</button>
                 </div>
             )}
         </div>
