@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Header(userSetter) {
+export default function Header({user}) {
     // const [user, setUser] = useState();
     // const [password, setPassword] = useState();
     // const [value, setValue] = useState("");
@@ -33,6 +33,7 @@ export default function Header(userSetter) {
     return (
         <header>
             <h1>Games Backlog</h1>
+            <h3> Current User: {user}</h3> 
             {/* <label>Login: </label> 
             <form > 
             <select name="users" id = "users" onChange= {handleChange}>

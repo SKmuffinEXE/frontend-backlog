@@ -7,10 +7,11 @@ export default function NavBar() {
     return (
         <nav>
      
-        <NavLink to="/"> Games </NavLink>
-        <NavLink to="/addGame">Add a Game</NavLink>
-        <NavLink to="/owned">Games Owned</NavLink>
-        {/* <NavLink to="/userlogin">User Login</NavLink> */}
+        <NavLink to="/"> Games </NavLink> &nbsp;
+        <NavLink to="/addGame">Add a Game</NavLink> &nbsp;
+        <NavLink to="/owned">Games Owned</NavLink>&nbsp;
+        {/* <NavLink to="/users">Users</NavLink> */}
+        <NavLink to="/userlogin">User Login</NavLink>
 
             
         </nav>
