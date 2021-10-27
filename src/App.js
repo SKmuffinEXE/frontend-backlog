@@ -12,17 +12,21 @@ import Users from "./Users";
 
 
 function App() {
+  // change port number here for easy access
+  const port = 3075
 
   const [games, setGames] = useState([])
   const [user, setUser] = useState("")
   const [gameList, setGameList] = useState([])
 
+ 
+
   useEffect(() => {
-    fetch("http://localhost:3074/games")
+    fetch(`http://localhost:${port}/games`)
     .then(res => res.json())
     .then((gameObj) => setGames(gameObj))
 
-    fetch(`http://localhost:3074/user/${user}`)
+    fetch(`http://localhost:${port}/user/${user}`)
     .then(res => res.json())
     .then((userObj) => {
         
@@ -50,11 +54,11 @@ function App() {
         Accept: "applicatiohn/json",
         "Content-Type" : "application/json"
       },
-      body:JSON.stringify({newGame})
+      body:JSON.stringify(newGame)
   
     }
 
-    fetch('http://localhost:3074/games', configObj)  
+    fetch(`http://localhost:${port}/games`, configObj)  
       .then(res => res.json())
       .then(newGame => setGames(prev => [...prev,newGame]))
       
@@ -72,18 +76,18 @@ function App() {
       <NavBar />
       <Switch>
         <Route path="/userlogin">
-            <Users setUser = {setUser} />
+            <Users setUser = {setUser} port = {port} />
           </Route>
         
           <Route path="/Owned">
-            <Owned user = {user} gameList = {gameList} deleteItem = {deleteItem} />
+            <Owned user = {user} gameList = {gameList} deleteItem = {deleteItem} port = {port}/>
           </Route>
           <Route exact path="/Addgame">
             <Addgame addGame={addGame} />
           </Route>
   
            <Route path="/">
-            <Games gamelist={games}  />
+            <Games gamelist={games} port = {port}  />
           </Route>
           <Route path="*">
             <h1>404 not found</h1>

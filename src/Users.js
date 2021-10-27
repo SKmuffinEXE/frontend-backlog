@@ -1,12 +1,12 @@
 import React from 'react'
 import {useState, useEffect } from 'react'
 
-export default function Users({setUser}) {
+export default function Users({setUser, port}) {
 
     const [userList, setUserList] = useState([])
     // const [user, setUser] = useState()
     useEffect(() => {
-        fetch("http://localhost:3073/user")
+        fetch(`http://localhost:${port}/user`)
         .then(res => res.json())
         .then((gameObj) => {
             
@@ -23,7 +23,7 @@ export default function Users({setUser}) {
             
             <h1> Users </h1>
             {userList.map(userObj => 
-                <div>
+                <div key = {userObj.id}>
                     <span>{userObj.user} &nbsp;</span> 
                     <button onClick = {() => {setUser(prev => userObj.id);}}> Login</button>
                 </div>

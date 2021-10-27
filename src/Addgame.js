@@ -11,8 +11,8 @@ export default function Gameform({addGame}) {
         e.preventDefault();
         const newGame = {
             name: title,
-            release_date: release,
-            genre: genre
+            genre: genre,
+            release_date: release
         };
         addGame(newGame)
     }
