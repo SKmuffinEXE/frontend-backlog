@@ -6,7 +6,7 @@ export default function Users({setUser}) {
     const [userList, setUserList] = useState([])
     // const [user, setUser] = useState()
     useEffect(() => {
-        fetch("http://localhost:9292/user")
+        fetch("http://localhost:3073/user")
         .then(res => res.json())
         .then((gameObj) => {
             

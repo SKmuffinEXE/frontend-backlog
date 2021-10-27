@@ -18,11 +18,11 @@ function App() {
   const [gameList, setGameList] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9292/games")
+    fetch("http://localhost:3074/games")
     .then(res => res.json())
     .then((gameObj) => setGames(gameObj))
 
-    fetch(`http://localhost:9292/user/${user}`)
+    fetch(`http://localhost:3074/user/${user}`)
     .then(res => res.json())
     .then((userObj) => {
         
@@ -41,6 +41,31 @@ function App() {
 
   // const gamelist = games.map(gameobj => <Games name={gameobj.name} genre={gameobj.genre} releasedate={gameobj.release_date} key={gameobj.id}/> )
 
+
+  function addGame(newGame){ 
+
+    const configObj = {
+      method: "POST",
+      headers: {
+        Accept: "applicatiohn/json",
+        "Content-Type" : "application/json"
+      },
+      body:JSON.stringify({newGame})
+  
+    }
+
+    fetch('http://localhost:3074/games', configObj)  
+      .then(res => res.json())
+      .then(newGame => setGames(prev => [...prev,newGame]))
+      
+    }
+    
+   
+  
+
+
+
+
   return (
     <div className="App">
       <Header user = {user}/>
@@ -54,7 +79,7 @@ function App() {
             <Owned user = {user} gameList = {gameList} deleteItem = {deleteItem} />
           </Route>
           <Route exact path="/Addgame">
-            <Addgame />
+            <Addgame addGame={addGame} />
           </Route>
   
            <Route path="/">
