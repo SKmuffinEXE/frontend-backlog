@@ -17,7 +17,7 @@ function App() {
   // const [user, setUser] = useState()
 
   useEffect(() => {
-    fetch("http://localhost:9292/games")
+    fetch("http://localhost:3071/games")
     .then(res => res.json())
     .then((gameObj) => setGames(gameObj))
   },[])

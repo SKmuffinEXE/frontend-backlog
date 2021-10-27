@@ -6,7 +6,7 @@ export default function Gamesowned() {
     const [user, setUser] = useState()
     const [gameList, setGameList] = useState([])
     useEffect(() => {
-        fetch("http://localhost:9292/user")
+        fetch("http://localhost:3071/user")
         .then(res => res.json())
         .then((gameObj) => {
             
@@ -18,7 +18,7 @@ export default function Gamesowned() {
       function handleClick(){
         console.log(user)
         setTimeout('', 7000);
-        fetch(`http://localhost:9292/user/${user}`)
+        fetch(`http://localhost:3071/user/${user}`)
         .then(res => res.json())
         .then((gameObj) => {
             
@@ -48,6 +48,7 @@ export default function Gamesowned() {
                 <h3>Release Date: {gameObj.game.release_date}</h3>
                 <h3>Status: {gameObj.status} </h3>
                 <h3>Hours Played: {gameObj.hours_played}</h3>
+                <button>Remove from backlog!</button>
                     
                 
                  </div>)}
