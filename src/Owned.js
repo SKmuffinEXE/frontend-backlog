@@ -1,30 +1,19 @@
 import React from 'react'
-import {useState, useEffect } from 'react'
+// import {useState, useEffect } from 'react'
 
-export default function Gamesowned({gameList}) {
-    // const [userList, setUserList] = useState([])
-    // const [user, setUser] = useState()
-    // const [gameList, setGameList] = useState([])
-    // useEffect(() => {
-    //     fetch("http://localhost:9292/user")
-    //     .then(res => res.json())
-    //     .then((gameObj) => {
-            
-    //         setUserList(gameObj)
-    //         console.log(gameObj[0].id)
-    //     })
-    //   },[])
-
-    //   function handleClick(){
-    //     console.log(user)
-    //     setTimeout('', 7000);
-    //     fetch(`http://localhost:9292/user/${user}`)
-    //     .then(res => res.json())
-    //     .then((gameObj) => {
-            
-    //         setGameList(gameObj.ownedgames)
-    //     }) 
-    // }
+export default function Gamesowned({gameList, deleteItem}) {
+   
+    function handleDelete(id){
+        fetch(`http://localhost:9292/ownedgames/${id}`, {
+      method: "DELETE"
+      })
+    //   .then((resp) => resp.json())
+    //   .then(() => {
+    
+    //    deleteItem(id)
+    //   });
+    deleteItem(id)
+    }
 
     return (
         <div>
@@ -48,7 +37,7 @@ export default function Gamesowned({gameList}) {
                 <h3>Release Date: {gameObj.game.release_date}</h3>
                 <h3>Status: {gameObj.status} </h3>
                 <h3>Hours Played: {gameObj.hours_played}</h3>
-                <button>Remove from backlog!</button>
+                <button onClick = {() => handleDelete(gameObj.id)}>Remove from backlog!</button>
                     
                 
                  </div>)}

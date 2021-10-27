@@ -31,6 +31,14 @@ function App() {
   }  
   ,[user])
 
+  const deleteItem = (id) => {
+   
+    const newListArray = gameList.filter(game => game.id !== id)
+    setGameList(newListArray)
+    // const newListArray = gameList.map(game => game.id !== id)
+    // console.log(newListArray) 
+}
+
   // const gamelist = games.map(gameobj => <Games name={gameobj.name} genre={gameobj.genre} releasedate={gameobj.release_date} key={gameobj.id}/> )
 
   return (
@@ -43,7 +51,7 @@ function App() {
           </Route>
         
           <Route path="/Owned">
-            <Owned user = {user} gameList = {gameList} />
+            <Owned user = {user} gameList = {gameList} deleteItem = {deleteItem} />
           </Route>
           <Route exact path="/Addgame">
             <Addgame />
