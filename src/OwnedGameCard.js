@@ -1,7 +1,39 @@
 import React from 'react'
 import {useState} from 'react'
+import styled from 'styled-components';
 
 export default function OwnedGameCard({gameObj, port, deleteItem}) {
+
+
+    const ownedWrapper = styled.div`
+        width: 500px;
+        margin: 10px;
+        padding: 25px;
+        box-shadow:  0 0 20px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.12);
+        border-radius: 35px;
+        text-align: center; 
+        background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+        font-size:10px;
+
+
+        & a:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 6px 15px -3px rgba(0, 0, 0, 0.65);
+            text-decoration: none;
+          }
+        
+          & a:active {
+            transform: translateY(-1px);
+            box-shadow: 4px 6px 8px -1px rgba(0, 0, 0, 0.65);
+          }
+        `;
+        
+
+
+
+
+
+
     const [status, setStatus] = useState("")
     const [hours, setHours] = useState("")
     const [editMode, setEditMode] = useState(false)
@@ -42,7 +74,7 @@ export default function OwnedGameCard({gameObj, port, deleteItem}) {
         }
 
     return (
-        <div>
+        <ownedWrapper>
             <div>
                 <form onSubmit={(e) => handleSubmit(e, gameObj.id)}>
                 <h1>{gameObj.game.name} </h1>
@@ -65,6 +97,9 @@ export default function OwnedGameCard({gameObj, port, deleteItem}) {
                 {editMode ? <button type = "submit"> Submit</button> : ""}         
                 </form>
                  </div>
-        </div>
+        </ownedWrapper>
     )
 }
+
+
+

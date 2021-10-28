@@ -32,7 +32,7 @@ export default function Header({user}) {
 
     return (
         <header>
-            <h1>Games Backlog</h1>
+            <h1>Games Backlog 🎮 </h1>
             <h3> Current User: {user}</h3> 
             {/* <label>Login: </label> 
             <form > 
