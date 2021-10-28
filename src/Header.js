@@ -33,7 +33,7 @@ export default function Header({user}) {
     return (
         <header>
             <h1>Games Backlog 🎮 </h1>
-            <h3> Current User: {user}</h3> 
+            <h3> Current User: {user.user}</h3> 
             {/* <label>Login: </label> 
             <form > 
             <select name="users" id = "users" onChange= {handleChange}>

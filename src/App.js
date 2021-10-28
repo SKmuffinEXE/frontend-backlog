@@ -100,7 +100,7 @@ function addOwned(){
           </Route>
   
            <Route path="/">
-            <Games gamelist={games} port = {port} user = {user.id}   addOwned = { addOwned}/>
+            <Games gamelist={games} port = {port} user = {user}   addOwned = { addOwned}/>
           </Route>
           <Route path="*">
             <h1>404 not found</h1>

@@ -10,7 +10,7 @@ export default function Users({setUser, port}) {
         .then((gameObj) => {
             
             setUserList(gameObj)
-            // console.log(gameObj[0].id)
+            console.log(gameObj)
         })
       },[])
 
