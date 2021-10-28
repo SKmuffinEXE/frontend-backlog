@@ -24,7 +24,7 @@ export default function Users({setUser, port}) {
             {userList.map(userObj => 
                 <div key = {userObj.id}>
                     <span>{userObj.user} &nbsp;</span> 
-                    <button onClick = {() => {setUser(prev => userObj.id);}}> Login</button>
+                    <button onClick = {() => {setUser(prev => userObj);}}> Login</button>
                 </div>
             )}
         </div>

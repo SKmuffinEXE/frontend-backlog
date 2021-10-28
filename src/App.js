@@ -26,7 +26,7 @@ function App() {
     .then(res => res.json())
     .then((gameObj) => setGames(gameObj))
 
-    fetch(`http://localhost:${port}/user/${user}`)
+    fetch(`http://localhost:${port}/user/${user.id}`)
     .then(res => res.json())
     .then((userObj) => {
         
@@ -61,7 +61,7 @@ function addOwned(){
     const configObj = {
       method: "POST",
       headers: {
-        Accept: "applicatiohn/json",
+        Accept: "application/json",
         "Content-Type" : "application/json"
       },
       body:JSON.stringify(newGame)
@@ -93,14 +93,14 @@ function addOwned(){
           </Route>
         
           <Route path="/Owned">
-            <Owned user = {user} gameList = {gameList} deleteItem = {deleteItem} port = {port}/>
+            <Owned user = {user.id} gameList = {gameList} deleteItem = {deleteItem} port = {port}/>
           </Route>
           <Route exact path="/Addgame">
             <Addgame addGame={addGame} />
           </Route>
   
            <Route path="/">
-            <Games gamelist={games} port = {port} user = {user}   addOwned = { addOwned}/>
+            <Games gamelist={games} port = {port} user = {user.id}   addOwned = { addOwned}/>
           </Route>
           <Route path="*">
             <h1>404 not found</h1>

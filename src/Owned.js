@@ -22,12 +22,13 @@ export default function Gamesowned({gameList, deleteItem, port,user}) {
 
 
     return (
-        <ownedWrapper>
+        <div>
             <h1>Games owned</h1>
             <h3>Total Hours: {hoursplayed} </h3>
-            
+            <div id="flexstyle">
             {gameList.map(gameObj => <OwnedGameCard key = {gameObj.id} gameObj = {gameObj} port = {port} deleteItem = {deleteItem}/>)}
-        </ownedWrapper>
+            </div>
+        </div>
     )
 }
 
