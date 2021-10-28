@@ -15,9 +15,15 @@ export default function Gamesowned({gameList, deleteItem, port,user}) {
        fetch(`http://localhost:${port}/user/${user}/totalhours`)
        .then(res => res.json())
        .then((totalhours) => setHoursPlayed(totalhours))
-       console.log(hoursplayed)
-    },[user])
+    },[])
   
+    function updateTotalHours() {
+        fetch(`http://localhost:${port}/user/${user}/totalhours`)
+       .then(res => res.json())
+       .then((totalhours) => setHoursPlayed(totalhours))
+    // console.log("test")
+
+    }
 
 
 
@@ -26,7 +32,7 @@ export default function Gamesowned({gameList, deleteItem, port,user}) {
             <h1>Games owned</h1>
             <h3>Total Hours: {hoursplayed} </h3>
             <div id="flexstyle">
-            {gameList.map(gameObj => <OwnedGameCard key = {gameObj.id} gameObj = {gameObj} port = {port} deleteItem = {deleteItem}/>)}
+            {gameList.map(gameObj => <OwnedGameCard key = {gameObj.id} gameObj = {gameObj} port = {port} deleteItem = {deleteItem} updateTotalHours = {updateTotalHours}/>)}
             </div>
         </div>
     )

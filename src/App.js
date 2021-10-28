@@ -45,7 +45,7 @@ function App() {
 
 function addOwned(){
 
-  fetch(`http://localhost:${port}/user/${user}`)
+  fetch(`http://localhost:${port}/user/${user.id}`)
     .then(res => res.json())
     .then((userObj) => {
         

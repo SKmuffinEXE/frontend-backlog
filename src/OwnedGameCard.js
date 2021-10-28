@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import styled from 'styled-components';
 
-export default function OwnedGameCard({gameObj, port, deleteItem}) {
+export default function OwnedGameCard({gameObj, port, deleteItem, updateTotalHours}) {
 
 
     
@@ -35,7 +35,11 @@ export default function OwnedGameCard({gameObj, port, deleteItem}) {
     .then(result => {
         setDisplayHours(result.hours_played)
         setDisplayStatus(result.status)
+        gameObj.hours_played = result.hours_played
+        gameObj.status = result.status
     });
+
+    updateTotalHours()
     }
 
     function handleDelete(id){ 

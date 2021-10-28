@@ -33,7 +33,7 @@ export default function GameCard({game, user, port,  addOwned}) {
 
     function addGame(e){
         e.preventDefault()
-        fetch(`http://localhost:${port}/user/${user}/${game.id}`,{
+        fetch(`http://localhost:${port}/user/${user.id}/${game.id}`,{
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
