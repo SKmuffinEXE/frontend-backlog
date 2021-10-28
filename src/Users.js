@@ -4,7 +4,6 @@ import {useState, useEffect } from 'react'
 export default function Users({setUser, port}) {
 
     const [userList, setUserList] = useState([])
-    // const [user, setUser] = useState()
     useEffect(() => {
         fetch(`http://localhost:${port}/user`)
         .then(res => res.json())

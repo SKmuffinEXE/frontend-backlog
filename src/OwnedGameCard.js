@@ -16,9 +16,6 @@ export default function OwnedGameCard({gameObj, port, deleteItem}) {
 
     function handleSubmit(e, id){
         e.preventDefault()
-        
-
-
         fetch(`http://localhost:${port}/ownedgames/${id}`,{
         method: "PATCH",
         headers: {

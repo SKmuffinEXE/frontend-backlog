@@ -43,6 +43,16 @@ function App() {
     // console.log(newListArray) 
 }
 
+function addOwned(){
+
+  fetch(`http://localhost:${port}/user/${user}`)
+    .then(res => res.json())
+    .then((userObj) => {
+        
+    setGameList(prev => userObj.ownedgames)
+    }) 
+}
+
   // const gamelist = games.map(gameobj => <Games name={gameobj.name} genre={gameobj.genre} releasedate={gameobj.release_date} key={gameobj.id}/> )
 
 
@@ -60,10 +70,13 @@ function App() {
 
     fetch(`http://localhost:${port}/games`, configObj)  
       .then(res => res.json())
-      .then(newGame => setGames(prev => [...prev,newGame]))
+      // .then(newGame => setGames(prev => [...prev,newGame])
+      .then(newGame => setGames(prev => [newGame,...prev])
+      )
       
     }
     
+  
    
   
 
@@ -87,7 +100,7 @@ function App() {
           </Route>
   
            <Route path="/">
-            <Games gamelist={games} port = {port}  />
+            <Games gamelist={games} port = {port} user = {user}   addOwned = { addOwned}/>
           </Route>
           <Route path="*">
             <h1>404 not found</h1>
